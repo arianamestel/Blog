@@ -24,7 +24,9 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect("mongodb://localhost/TheDebate");
+//mongoose.connect("mongodb://localhost/TheDebate");
+mongoose.connect("mongodb://ariana:password@ds123790.mlab.com:23790/debate");
+
 
 // seedDB();
 
@@ -54,3 +56,4 @@ app.use(indexRoutes);
 app.listen(3000, function() {
 	console.log("Connected to server!!");
 });
+// app.listen(process.env.PORT, process.env.IP);
