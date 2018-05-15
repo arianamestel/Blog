@@ -53,7 +53,7 @@ app.use("/articles", articleRoutes);
 app.use("/articles/:id/comments/", commentRoutes);
 app.use(indexRoutes);
 
-app.listen(3000, function() {
-	console.log("Connected to server!!");
-});
-// app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000, function() {
+// 	console.log("Connected to server!!");
+// });
+app.listen(process.env.PORT, process.env.IP);
