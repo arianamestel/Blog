@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div class="container">
+	<div class="row">
+		<h1>Edit <%= article.title %></h1>
+		<div>
+			<form action="/articles/<%=article._id%>?_method=PUT" method="POST">
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" class="form-control" value = "<%= article.title %>" name = "article[title]">
+				</div>
+				<div class="form-group">
+					<label>Author</label>
+					<input type="text" class="form-control" value = "<%= article.author.full_name %>" name = "article[author][full_name]">
+			 	</div>
+				<div class="form-group">
+					<label>Image</label>
+					<input type="text" class="form-control" value = "<%=article.image%>" name="article[image]">
+				</div>
+				<div class="form-group">
+					<label>Article Content</label>
+					<textarea class="form-control" name="article[post]"><%-article.post%></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-danger btn-primary btn-block">Submit</button>
+				</div>
+			</form>
+			<a href="/articles/<%= article._id %>">Go Back</a>
+		</div>
+	</div>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,36 @@
+
+#gridRow {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.rightRadio {
+	float: right;
+}
+
+.inlineButtons {
+	display: inline;
+	margin-left: .7em;
+}
+
+.panel-danger {
+	width: 50%;
+}
+
+
+.thumbnail img {
+	width: 100%;
+}
+
+.index-thumbnail img {
+	width: 100%;
+	height: 140px;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.thumbnail .caption-full {
+	padding: 9px;
+}

@@ -1,0 +1,35 @@
+<% include partials/header %>
+
+<div class = "container">
+
+	<header class="jumbotron">
+		<div class = "container">
+			<h1>The Debate</h1>
+			<p>Articles containing: <%= search %></p>
+		</div>
+	</header>
+
+
+	<div class="row text-center" id = "gridRow">
+		<% articles.forEach(function(article) { %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<img src="<%= article.image%>"></img>
+					<div class="caption">
+						<h4>
+							<strong> <%= article.title%></strong> by <%= article.author.full_name %>
+						</h4>
+					</div>
+					<p>
+						<a href="/articles/<%= article._ %>" class = "btn btn-danger">More Info</a>
+					</p>
+				</div>
+			</div>
+		<% }) %>
+	</div>
+	
+
+	<a href = "/articles">Go Back</a>
+</div>
+
+<% include partials/footer %>
