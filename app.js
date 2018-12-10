@@ -1,21 +1,21 @@
-var express 		= require("express"),
-	expressSantizer = require("express-sanitizer"),
+var express 			= require("express"),
+	expressSantizer 	= require("express-sanitizer"),
 	methodOverride 	= require("method-override"),
-	app 			= express(),
-	bodyParser 		= require("body-parser"),
-	mongoose 		= require("mongoose"),
-	passport 		= require("passport"),
-	LocalStrategy	= require("passport-local"),
-	flash			= require("connect-flash"),
-	Article 		= require("./models/articles"),
-	User			= require("./models/users"),
-	Comment 		= require("./models/comments"),
-	seedDB			= require("./seeds");
+	app 					= express(),
+	bodyParser 			= require("body-parser"),
+	mongoose 			= require("mongoose"),
+	passport 			= require("passport"),
+	LocalStrategy		= require("passport-local"),
+	flash					= require("connect-flash"),
+	Article 				= require("./models/articles"),
+	User					= require("./models/users"),
+	Comment 				= require("./models/comments"),
+	seedDB				= require("./seeds");
 
 // requiring routes
 var articleRoutes 	= require("./routes/articles.js"),
 	commentRoutes 	= require("./routes/comments.js"),
-	indexRoutes		= require("./routes/index.js"); 	
+	indexRoutes		= require("./routes/index.js");
 
 // APP CONFIG
 app.use(bodyParser.urlencoded({extended: true}));
