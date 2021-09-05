@@ -26,7 +26,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 //mongoose.connect("mongodb://localhost/TheDebate");
 mongoose.connect(
-  "mongodb+srv://ariana:password@debate.ekmwo.mongodb.net/debate?retryWrites=true&w=majority"
+  "mongodb+srv://ariana:X6tevbJMdlYb7qay@debate.ekmwo.mongodb.net/debate?retryWrites=true&w=majority"
 );
 
 // seedDB();
