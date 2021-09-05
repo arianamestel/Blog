@@ -24,12 +24,23 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//mongoose.connect("mongodb://localhost/TheDebate");
-mongoose.connect(
-  "mongodb+srv://ariana:X6tevbJMdlYb7qay@debate.ekmwo.mongodb.net/debate?retryWrites=true&w=majority"
-);
 
-// seedDB();
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+var options = {
+  keepAlive: 1,
+  connectTimeoutMS: 30000,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+mongoose.connect(
+  "mongodb+srv://ariana:X6tevbJMdlYb7qay@debate.ekmwo.mongodb.net/debate?retryWrites=true&w=majority",
+  options,
+  (err) => {
+    if (err) console.log(err);
+  }
+);
 
 //passport config
 app.use(
@@ -56,7 +67,4 @@ app.use("/articles", articleRoutes);
 app.use("/articles/:id/comments/", commentRoutes);
 app.use(indexRoutes);
 
-// app.listen(3000, function() {
-// 	console.log("Connected to server!!");
-// });
 app.listen(process.env.PORT, process.env.IP);
