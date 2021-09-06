@@ -2,21 +2,19 @@
 
 <div class = "container mt-4">
 
-	<header class="jumbotron">
-		<div class = "container">
-			<h1>Welcome to The Debate</h1>
-			<p>View our most popular articles</p>
-			<p>
-				<a href="/articles/new" class = "btn btn-lg btn-danger">Add New Article</a>
-			</p>
+	<div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://thumbs.dreamstime.com/b/bulb-164354798.jpg)">
+		<div class="container" >
+			<h1 class="font-weight-bold">Welcome to The Debate</h1>
+			<h5 class="font-weight-bold">View our articles and join the conversation!</h5>
 		</div>
-	</header>
+	</div>
 
-	<div class="row">
-		<form class="form-inline mb-3 mx-3 ml-auto" action="/articles/search" method="POST">
+	<div class="d-flex">
+		<form class="form-inline mb-3 mr-auto" action="/articles/search" method="POST">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
+		<a href="/articles/new" class = "btn btn-danger mb-3">Add New Article</a>
 	</div>
 
 	<div class="row" id="gridRow">

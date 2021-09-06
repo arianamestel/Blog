@@ -56,14 +56,10 @@ router.get(
       if (err) {
         res.redirect("back");
       } else {
-        res.redirect("/articles/" + req.params.id, {
+        res.render("comments/edit", {
           article_id: req.params.id,
-          comment: { ...foundComment, edit_mode: true },
+          comment: foundComment,
         });
-        // res.render("comments/edit", {
-        //   article_id: req.params.id,
-        //   comment: foundComment,
-        // });
       }
     });
   }
