@@ -2,7 +2,7 @@
 
 <div class = "container">
 
-	<div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://thumbs.dreamstime.com/b/bulb-164354798.jpg)">
+	<div class="p-5 mb-4 bg-light rounded-3 jumbotronImg">
 		<div class = "container">
 			<h1 class="font-weight-bold text-center">The Debate</h1>
 			<h5 class="font-weight-bold text-center">Articles containing: "<%= search %>"</h5>
@@ -15,7 +15,7 @@
 			<p class="ml-3">No results found.</p>
 		<% } %>		
 		<% articles.forEach(function(article) { %>
-			<div class="col-md-3 col-sm-6 mb-3">
+			<div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 				<a href="/articles/<%= article._id %>" id='cardLink'>
 				<div class="card shadow-sm" style="height: 420px;">
 					<img class="card-img-top" style="height: 175px;" src="<%= article.image%>"></img>
