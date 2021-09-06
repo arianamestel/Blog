@@ -10,20 +10,20 @@
 	</header>
 
 
-	<div class="row text-center" id = "gridRow">
+	<div class="row" id = "gridRow">
 		<% articles.forEach(function(article) { %>
-			<div class="col-md-3 col-sm-6">
-				<div class="thumbnail">
-					<img src="<%= article.image%>"></img>
-					<div class="caption">
-						<h4>
-							<strong> <%= article.title%></strong> by <%= article.author.full_name %>
-						</h4>
+			<div class="col-md-3 col-sm-6 mb-3">
+				<a href="/articles/<%= article._id %>" id='cardLink'>
+				<div class="card shadow-sm" style="height: 420px;">
+					<img class="card-img-top" style="height: 175px;" src="<%= article.image%>"></img>
+					<div class="card-body">
+						<div class="card-title h5">
+							<strong><%= article.title %></strong> by <%= article.author.full_name %>
+						</div>
+						<p class='card-text line-clamp'><%=article.post %></p>
 					</div>
-					<p>
-						<a href="/articles/<%= article._ %>" class = "btn btn-danger">More Info</a>
-					</p>
 				</div>
+				</a>
 			</div>
 		<% }) %>
 	</div>

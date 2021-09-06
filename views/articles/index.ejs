@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class = "container">
+<div class = "container mt-4">
 
 	<header class="jumbotron">
 		<div class = "container">
@@ -12,30 +12,32 @@
 		</div>
 	</header>
 
+	<div class="row">
+		<form class="form-inline mb-3 mx-3 ml-auto" action="/articles/search" method="POST">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
 
-	<div class="row text-center" id = "gridRow">
+	<div class="row" id="gridRow">
 		<% articles.forEach(function(article) { %>
-			<div class="col-md-3 col-sm-6">
-				<div class="thumbnail index-thumbnail">
-					<img src="<%= article.image%>"></img>
-					<div class="caption">
-						<h4>
+			<div class="col-md-3 col-sm-6 mb-3">
+				<a href="/articles/<%= article._id %>" id='cardLink'>
+				<div class="card shadow-sm cardHover" style="height: 420px;">
+					<img class="card-img-top" style="height: 175px;" src="<%= article.image%>"></img>
+					<div class="card-body">
+						<div class="card-title h5">
 							<strong><%= article.title %></strong> by <%= article.author.full_name %>
-						</h4>
-						<p><%=article.post.substring(0, 100)%>...</p>
+						</div>
+						<p class='card-text line-clamp'><%=article.post %></p>
 					</div>
-					<p>
-						<a href="/articles/<%= article._id %>" class = "btn btn-danger">More Info</a>
-					</p>
 				</div>
+				</a>
 			</div>
 		<% }); %>
 
 		</div>
 	</div>
-
-
-	<a href = "/">Go Back</a>
 </div>
 
 <% include ../partials/footer %>
