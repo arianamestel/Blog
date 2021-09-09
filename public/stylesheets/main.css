@@ -42,3 +42,7 @@
 .jumbotronImg {
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://thumbs.dreamstime.com/b/bulb-164354798.jpg);
 }
+
+.boldText {
+  font-weight: 700;
+}
