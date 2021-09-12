@@ -9,7 +9,14 @@ router.get("/", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("articles/index", { articles: allArticles });
+      let votes = {};
+      if (req && req.user && req.user._id) {
+        votes = {
+          liked: foundArticle.likes.includes(req.user._id),
+          disliked: foundArticle.dislikes.includes(req.user._id),
+        };
+      }
+      res.render("articles/index", { articles: allArticles, ...votes });
     }
   });
 });
@@ -51,7 +58,14 @@ router.get("/:id", function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.render("articles/show", { article: foundArticle });
+        let votes = {};
+        if (req && req.user && req.user._id) {
+          votes = {
+            likes: foundArticle.likes.includes(req.user._id),
+            disliked: foundArticle.dislikes.includes(req.user._id),
+          };
+        }
+        res.render("articles/show", { article: foundArticle, ...votes });
       }
     });
 });
@@ -78,6 +92,43 @@ router.put("/:id", middleware.checkArticleOwnership, function (req, res) {
         console.log(err);
       } else {
         req.flash("success", "Your article was updated");
+        res.redirect("/articles/" + req.params.id);
+      }
+    }
+  );
+});
+
+// update route
+router.put("/:id/like", middleware.checkIfUserVoted, function (req, res) {
+  console.log("ROUTE", req.user);
+  Article.findByIdAndUpdate(
+    req.params.id,
+    {
+      $push: { likes: req.user._id },
+    },
+    function (err, articleUpdate) {
+      if (err) {
+        console.log(err);
+      } else {
+        req.flash("success", "You liked the article");
+        res.redirect("/articles/" + req.params.id);
+      }
+    }
+  );
+});
+
+// update route
+router.put("/:id/dislike", middleware.checkIfUserVoted, function (req, res) {
+  Article.findByIdAndUpdate(
+    req.params.id,
+    {
+      $push: { dislikes: req.user._id },
+    },
+    function (err, articleUpdate) {
+      if (err) {
+        console.log(err);
+      } else {
+        req.flash("success", "You disliked the article");
         res.redirect("/articles/" + req.params.id);
       }
     }

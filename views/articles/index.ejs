@@ -22,20 +22,33 @@
 	</div>
 
 
-	<div class="row" id="gridRow">
+	<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-3" id="gridRow">
 		<% articles.forEach(function(article) { %>
-			<div class="col-sm-12 col-md-6 col-lg-3 mb-3">
-				<a href="/articles/<%= article._id %>" id='cardLink'>
-				<div class="card shadow-sm cardHover" style="height: 420px;">
-					<img class="card-img-top" style="height: 175px;" src="<%= article.image%>"></img>
-					<div class="card-body">
+			<div class="col" id='cardLink'>
+				<div class="card h-100 shadow-sm cardHover">
+					<img class="card-img-top" style="height: 175px; cursor:pointer;" src="<%= article.image%>" onclick="location.href='/articles/<%= article._id %>'"></img>
+					<div class="card-body" onclick="location.href='/articles/<%= article._id %>'" style="cursor:pointer;">
 						<div class="card-title h5">
 							<strong><%= article.title %></strong> by <%= article.author.full_name %>
 						</div>
-						<p class='card-text line-clamp'><%=article.post %></p>
-					</div>
+						<p class='card-text line-clamp mb-2'><%=article.post %></p>
+					</div>	
+					<!-- Add liking system -->
+					<!-- <div class="card-footer">
+						<div class='row'>
+							<form class="col" action="/articles/<%= article._id %>/dislike?_method=PUT" method="POST">
+								<button class="btn btn-danger col">
+									<i class="far fa-thumbs-down"></i>
+								</button>
+							</form>
+							<form class="col" action="/articles/<%= article._id %>/like?_method=PUT" method="POST">
+								<button class="btn btn-success float-end col">
+									<i class="far fa-thumbs-up"></i>
+								</button>
+							</form>
+						</div>
+					</div> -->
 				</div>
-				</a>
 			</div>
 		<% }); %>
 

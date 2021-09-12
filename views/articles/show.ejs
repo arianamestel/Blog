@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<div class = "card mb-3 shadow-sm">
-				<img src="<%=article.image%>" class="card-img-top" style="height: 500px;">
+				<img src="<%=article.image%>" class="card-img-top" style="height: 375px;">
 				<div class="card-body">
 					<% if (currentUser && article.author.id.equals(currentUser._id)) { %>
 						<div class="d-flex">
@@ -98,7 +98,7 @@
 					</div>
 				<% }); %>
 			<form class="input-group mt-2" action = "/articles/<%= article._id %>/comments" method = "POST">
-				<input type="text" class="form-control mr-2" id="inputText" placeholder="Add new comment" name = "comments[text]">
+				<input type="text" class="form-control mr-2" id="inputText" placeholder="Add a comment" name = "comments[text]">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>
