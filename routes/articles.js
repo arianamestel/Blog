@@ -9,14 +9,14 @@ router.get("/", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      let votes = {};
-      if (req && req.user && req.user._id) {
-        votes = {
-          liked: foundArticle.likes.includes(req.user._id),
-          disliked: foundArticle.dislikes.includes(req.user._id),
-        };
-      }
-      res.render("articles/index", { articles: allArticles, ...votes });
+      // let votes = {};
+      // if (req && req.user && req.user._id) {
+      //   votes = {
+      //     liked: foundArticle.likes.includes(req.user._id),
+      //     disliked: foundArticle.dislikes.includes(req.user._id),
+      //   };
+      // }
+      res.render("articles/index", { articles: allArticles });
     }
   });
 });
@@ -58,14 +58,14 @@ router.get("/:id", function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        let votes = {};
-        if (req && req.user && req.user._id) {
-          votes = {
-            likes: foundArticle.likes.includes(req.user._id),
-            disliked: foundArticle.dislikes.includes(req.user._id),
-          };
-        }
-        res.render("articles/show", { article: foundArticle, ...votes });
+        // let votes = {};
+        // if (req && req.user && req.user._id) {
+        //   votes = {
+        //     likes: foundArticle.likes.includes(req.user._id),
+        //     disliked: foundArticle.dislikes.includes(req.user._id),
+        //   };
+        // }
+        res.render("articles/show", { article: foundArticle });
       }
     });
 });
